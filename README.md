@@ -67,7 +67,6 @@ sudo /usr/local/nginx/sbin/nginx -s reload
 
 ### Configure app on NGINX as reverse proxy
 
-
 ## Create Java API to Stress
 
 ### Criar um projeto Spring Boot
