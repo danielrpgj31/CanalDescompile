@@ -25,7 +25,7 @@ public class DelayController {
     public ResponseEntity<String> simulateDelay() {
         try {
             // Cria um objeto grande e adiciona à lista
-            byte[] objetoGrande = new byte[1024 * 1024 * 1]; // 1MB
+            byte[] objetoGrande = new byte[128 * 1024 * 1]; // 128KB
             memoria.add(objetoGrande);
 
             return ResponseEntity.ok().body("ok");
