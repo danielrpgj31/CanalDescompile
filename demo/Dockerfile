@@ -2,6 +2,7 @@
 FROM openjdk:17-jdk-slim
 
 # Criar o diretório de trabalho dentro do container
+RUN mkdir /app
 WORKDIR /app
 
 # Copiar o arquivo JAR gerado para o container
