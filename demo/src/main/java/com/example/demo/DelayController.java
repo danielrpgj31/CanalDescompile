@@ -15,11 +15,13 @@ public class DelayController {
         SpringApplication.run(DelayController.class, args);
     }
 
+    public static byte[] memoria;
+
     @GetMapping("/simulate-delay")
     public ResponseEntity<String> simulateDelay() {
         try {
             // Cria um objeto grande que não será coletado pelo GC
-            byte[] memoria = new byte[1024 * 1024 * 10]; // 10MB
+            memoria = new byte[1024 * 1024 * 10]; // 10MB
 
             return ResponseEntity.ok().body("ok");
         } catch (Exception e) {
