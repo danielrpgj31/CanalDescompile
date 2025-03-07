@@ -21,7 +21,7 @@ public class DelayController {
     public ResponseEntity<String> simulateDelay() {
         try {
             // Cria um objeto grande que não será coletado pelo GC
-            memoria = new byte[1024 * 1024 * 10]; // 10MB
+            memoria = new byte[1024 * 1024 * 40]; // 40MB
 
             return ResponseEntity.ok().body("ok");
         } catch (Exception e) {
