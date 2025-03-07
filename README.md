@@ -150,14 +150,21 @@ Agora, a API estará acessível em http://localhost:8080/simulate-delay.
 
 ### Testar a API
 
-1. Acesse o endpoint em qualquer navegador ou ferramenta como o curl ou Postman:
+1. Instalar o hey
 
-```
-curl http://localhost:8080/simulate-delay
+```bash
+$ sudo apt install hey
+$ hey -n 500 -c 2 -q 2 -m GET "http://localhost:8081/simulate-delay"
 ```
 
-Você verá a resposta após 10 segundos:
+2. Executar o stress da api http
 
-```
-Resposta após 10 segundos!
+Explicação:
+- n 500: Número total de requisições.
+- c 2: Número de requisições simultâneas (concorrência).
+- q 2: Quantidade de requisições por segundo.
+- m GET: Método HTTP (troque por POST, PUT etc. se necessário).
+
+```bash
+$ hey -n 500 -c 2 -q 2 -m GET "http://localhost:8081/simulate-delay"
 ```

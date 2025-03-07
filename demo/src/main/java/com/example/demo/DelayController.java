@@ -7,6 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SpringBootApplication
 @RestController
 public class DelayController {
@@ -15,13 +18,15 @@ public class DelayController {
         SpringApplication.run(DelayController.class, args);
     }
 
-    public static byte[] memoria;
+    // Lista estática para armazenar objetos grandes
+    private static List<byte[]> memoria = new ArrayList<>();
 
     @GetMapping("/simulate-delay")
     public ResponseEntity<String> simulateDelay() {
         try {
-            // Cria um objeto grande que não será coletado pelo GC
-            memoria = new byte[1024 * 1024 * 40]; // 40MB
+            // Cria um objeto grande e adiciona à lista
+            byte[] objetoGrande = new byte[1024 * 1024 * 1]; // 1MB
+            memoria.add(objetoGrande);
 
             return ResponseEntity.ok().body("ok");
         } catch (Exception e) {
